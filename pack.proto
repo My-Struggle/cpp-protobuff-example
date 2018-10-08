@@ -1,0 +1,28 @@
+syntax = "proto3";
+package PKMSG;
+message PK_Head
+{
+      uint32 PkType=1;    //数据包类型
+      uint32 PkLength=2;  //数据包长度
+}
+
+message Msg_Body
+{
+     PK_Head PkHead=1;    //包头
+     string Msg=2;        //消息内容
+     uint32 MsgLength=3;  //消息长度
+     uint32 IndexID=5;    //数据包索引值
+     uint32 Sequence=6;   //数据包序列号
+     uint32 BodyNumber=7; //数据包个数
+     enum SystemType{
+        IOS=0;
+        Android=1;
+        Symbian=2;
+        Windows=3; 
+        Linux=4;
+        Other=5;
+    }
+    SystemType Type=8;
+}
+
+
